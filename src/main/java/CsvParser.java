@@ -13,8 +13,8 @@ public class CsvParser {
     public List<User> parse() {
         List<User> users = new ArrayList<>();
         try (
-                Reader reader = Files.newBufferedReader(Path.of(CsvParser.class.getResource("emails.csv").toURI()));
-                CSVReader csvReader = new CSVReader(reader)
+            Reader reader = Files.newBufferedReader(Path.of(CsvParser.class.getResource("emails.csv").toURI()));
+            CSVReader csvReader = new CSVReader(reader)
         ) {
             csvReader.skip(NUMBER_OF_LINES_TO_SKIP);
 
