@@ -9,19 +9,22 @@ import java.util.List;
 public class CsvParser {
 
     public List<User> parse() {
-        List<String[]> list = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         try (
                 Reader reader = Files.newBufferedReader(Path.of(CsvParser.class.getResource("emails.csv").toURI()));
                 CSVReader csvReader = new CSVReader(reader)
         ) {
             String[] line;
             while ((line = csvReader.readNext()) != null) {
-                list.add(line);
+                User user = new User();
+                user.setName(line[0]);
+                user.setSurname(line[1]);
+                user.setEmail(line[2]);
+                users.add(user);
             }
-            System.out.println();
         } catch (Exception e) {
             System.out.println("the end");
         }
-        return null;
+        return users;
     }
 }
