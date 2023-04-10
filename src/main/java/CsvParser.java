@@ -10,6 +10,7 @@ public class CsvParser {
 
     private static final int NUMBER_OF_LINES_TO_SKIP = 1;
 
+    // TODO: add test
     public List<User> parse() {
         List<User> users = new ArrayList<>();
         try (
@@ -27,7 +28,7 @@ public class CsvParser {
                 users.add(user);
             }
         } catch (Exception e) {
-            System.out.println("the end");
+            System.out.println("the end"); // TODO: handle exception correctly
         }
         return users;
     }
